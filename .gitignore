@@ -22,3 +22,21 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python pipeline – exclude large/generated artefacts
+ass01/.venv/
+ass01/data/cache/
+ass01/data/output/
+ass01/__pycache__/
+ass01/**/__pycache__/
+ass01/**/*.pyc
+
+# Test / scratch projects
+my-react-app/
+
+# Raw geospatial files at root (not needed for deployment)
+*.geojson
+!public/data/*.geojson
+
+# Old OpenPlaques demo data (superseded by bike theft data)
+src/data/

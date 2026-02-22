@@ -1,0 +1,172 @@
+{
+  "months": [
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "areas": [
+    {
+      "id": "E09000002",
+      "name": "Barking and Dagenham"
+    },
+    {
+      "id": "E09000003",
+      "name": "Barnet"
+    },
+    {
+      "id": "E09000004",
+      "name": "Bexley"
+    },
+    {
+      "id": "E09000005",
+      "name": "Brent"
+    },
+    {
+      "id": "E09000006",
+      "name": "Bromley"
+    },
+    {
+      "id": "E09000007",
+      "name": "Camden"
+    },
+    {
+      "id": "E09000001",
+      "name": "City of London"
+    },
+    {
+      "id": "E09000008",
+      "name": "Croydon"
+    },
+    {
+      "id": "E09000009",
+      "name": "Ealing"
+    },
+    {
+      "id": "E09000010",
+      "name": "Enfield"
+    },
+    {
+      "id": "E09000011",
+      "name": "Greenwich"
+    },
+    {
+      "id": "E09000012",
+      "name": "Hackney"
+    },
+    {
+      "id": "E09000013",
+      "name": "Hammersmith and Fulham"
+    },
+    {
+      "id": "E09000014",
+      "name": "Haringey"
+    },
+    {
+      "id": "E09000015",
+      "name": "Harrow"
+    },
+    {
+      "id": "E09000016",
+      "name": "Havering"
+    },
+    {
+      "id": "E09000017",
+      "name": "Hillingdon"
+    },
+    {
+      "id": "E09000018",
+      "name": "Hounslow"
+    },
+    {
+      "id": "E09000019",
+      "name": "Islington"
+    },
+    {
+      "id": "E09000020",
+      "name": "Kensington and Chelsea"
+    },
+    {
+      "id": "E09000021",
+      "name": "Kingston upon Thames"
+    },
+    {
+      "id": "E09000022",
+      "name": "Lambeth"
+    },
+    {
+      "id": "E09000023",
+      "name": "Lewisham"
+    },
+    {
+      "id": "E09000024",
+      "name": "Merton"
+    },
+    {
+      "id": "E09000025",
+      "name": "Newham"
+    },
+    {
+      "id": "E09000026",
+      "name": "Redbridge"
+    },
+    {
+      "id": "E09000027",
+      "name": "Richmond upon Thames"
+    },
+    {
+      "id": "E09000028",
+      "name": "Southwark"
+    },
+    {
+      "id": "E09000029",
+      "name": "Sutton"
+    },
+    {
+      "id": "E09000030",
+      "name": "Tower Hamlets"
+    },
+    {
+      "id": "E09000031",
+      "name": "Waltham Forest"
+    },
+    {
+      "id": "E09000032",
+      "name": "Wandsworth"
+    },
+    {
+      "id": "E09000033",
+      "name": "Westminster"
+    }
+  ],
+  "thresholds": {
+    "stability_min_exposure": 10,
+    "spike_threshold": 0.5,
+    "baseline_window_months": 6
+  },
+  "fields": {
+    "theft_count": "Number of bicycle theft incidents (UK Police Open Data)",
+    "exposure": "Bicycle parking features in Borough (OpenStreetMap)",
+    "risk_ratio": "theft_count / exposure",
+    "city_mean_ratio": "Mean risk_ratio across all valid Boroughs that month",
+    "risk_index": "risk_ratio / city_mean_ratio  (city baseline = 1.0)",
+    "stability_flag": "True when exposure < 10 (interpret with caution)",
+    "alert_spike": "risk_index > 6-month rolling mean \u00d7 1.5",
+    "alert_trend3": "risk_index rose for 3 consecutive months",
+    "alert_level": "none | watch (1 flag) | warning (2 flags)"
+  },
+  "data_sources": {
+    "crimes": "UK Police Open Data API",
+    "exposure": "OpenStreetMap via Overpass API",
+    "boundaries": "London Datastore (GLA)",
+    "license": "OGL v3 (Police) | ODbL 1.0 (OSM) | OGL v3 (GLA)"
+  }
+}
